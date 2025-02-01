@@ -22,7 +22,7 @@ public class MonkeyController : MonoBehaviour
     public void OnMove(InputValue value)
     {
         m_Move = value.Get<Vector2>();
-        Debug.Log(m_Move.x);
+        //Debug.Log(m_Move.x);
     }
     void Update()
     {
@@ -51,8 +51,8 @@ public class MonkeyController : MonoBehaviour
     {
         foreach(var contact in col.contacts)
         {
-            Debug.Log(contact.normal);
-            Debug.Log(contact.collider.gameObject);
+            //Debug.Log(contact.normal);
+            //Debug.Log(contact.collider.gameObject);
             if(contact.normal.y > 0.9f)
             {
                 touchedGround.Add(contact.collider);
