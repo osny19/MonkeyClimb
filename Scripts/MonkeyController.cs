@@ -105,7 +105,7 @@ public class MonkeyController : MonoBehaviour
     {
         if (transform.position.y > maxHeight) // Update max height
         {
-            maxHeight = transform.position.y - 4;
+            maxHeight = transform.position.y;
             UpdateScoreDisplay();
         }
     }
