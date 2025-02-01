@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bc6aae80a28cd3e438df03f756dec2a8
+guid: 7ab10422a638e9f48ab16aa8ff46ca3b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4538516210051893504
-    second: monkey_walking_left2_0
+      213: 1980231026134051347
+    second: sitting_monkey_back_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: monkey_walking_left2_0
+      name: sitting_monkey_back_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 49
-        height: 41
+        width: 50
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 00731849d83f301c0800000000000000
-      internalID: -4538516210051893504
+      spriteID: 31a6de560a13b7b10800000000000000
+      internalID: 1980231026134051347
       vertices: []
       indices: 
       edges: []
@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sitting_monkey_back_0: 1980231026134051347
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
