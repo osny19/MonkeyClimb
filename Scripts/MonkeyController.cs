@@ -12,6 +12,8 @@ public class MonkeyController : MonoBehaviour
     private Rigidbody2D rigidbody2D;
     private Vector2 m_Move;
     private HashSet<Collider2D> touchedGround;
+    public float maxSpeed = 10;
+    public GameObject deathEffectPrefab;
 
     void Awake()
     {
@@ -28,9 +30,9 @@ public class MonkeyController : MonoBehaviour
     {
         // Move
         rigidbody2D.AddForceX(m_Move.x * speed * Time.deltaTime);
-
+        rigidbody2D.linearVelocityX = Mathf.Clamp(rigidbody2D.linearVelocityX, -maxSpeed, maxSpeed);
         // Jump
-        if(m_Move.y > 0.5f)
+        if (m_Move.y > 0.5f && touchedGround.Count > 0)
         {
             bool canJump = false;
             foreach(Collider2D go in touchedGround)
@@ -43,8 +45,8 @@ public class MonkeyController : MonoBehaviour
             if (canJump)
             {
                 rigidbody2D.AddForceY(jumpStrength);
-                touchedGround = new HashSet<Collider2D>();
             }
+            touchedGround = new HashSet<Collider2D>();
         }
     }
     void OnCollisionEnter2D(Collision2D col)
@@ -58,5 +60,13 @@ public class MonkeyController : MonoBehaviour
                 touchedGround.Add(contact.collider);
             }
         }
+    }
+    public void Die()
+    {
+        Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
+        rigidbody2D.Sleep();
+        Destroy(gameObject.GetComponent<SpriteRenderer>());
+        GameOverText.instance.GameOver();
+        Destroy(this);
     }
 }
