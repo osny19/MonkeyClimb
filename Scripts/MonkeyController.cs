@@ -3,6 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using Unity.Mathematics;
 
 [RequireComponent(typeof(PlayerInput))]
 [RequireComponent(typeof(Rigidbody2D))]
@@ -10,6 +11,7 @@ public class MonkeyController : MonoBehaviour
 {
     public float speed = 3f;
     public float jumpStrength = 10f;
+    public float climbSpeed = 5000f;
     private Rigidbody2D rigidbody2D;
     private Vector2 m_Move;
     private HashSet<Collider2D> touchedGround;
@@ -17,6 +19,7 @@ public class MonkeyController : MonoBehaviour
     public GameObject deathEffectPrefab;
     public int bananaCount = 0; // Tracks collected bananas
     public TMP_Text Bananas; // Assign UI Text in Inspector
+    public bool inVine = false;
 
 
 
@@ -37,6 +40,17 @@ public class MonkeyController : MonoBehaviour
     }
     void Update()
     {
+
+        if (inVine && rigidbody2D.linearVelocityY < 0) {
+            rigidbody2D.gravityScale = 0;
+        } else {
+            rigidbody2D.gravityScale = 1;
+        }
+
+        if (inVine) {
+            rigidbody2D.linearVelocityY = m_Move.y * climbSpeed * Time.deltaTime;
+        }
+
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
@@ -56,7 +70,7 @@ public class MonkeyController : MonoBehaviour
                     canJump = true;
                 }
             }
-            if (canJump)
+            if (canJump && !(inVine))
             {
                 rigidbody2D.AddForceY(jumpStrength);
             }
@@ -97,4 +111,6 @@ public class MonkeyController : MonoBehaviour
     {
         Bananas.text = "Bananas: " + bananaCount;
     }
+
+    
 }
