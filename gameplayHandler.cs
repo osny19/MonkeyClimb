@@ -24,7 +24,7 @@ public class gameplayHandler : MonoBehaviour
             segmentCount++;
             GameObject newSegment = Instantiate(background);
 
-            newSegment.transform.position = new UnityEngine.Vector2(-1.261898f, background.transform.position.y+segmentCount*segmentHeight);
+            newSegment.transform.position = new UnityEngine.Vector2(-1.261898f, background.transform.position.y+segmentCount*segmentHeight-0.01f);
         }
         
     }
