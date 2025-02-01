@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7500720732425663272}
   - component: {fileID: 1281531207889661290}
   - component: {fileID: -212567954001535041}
+  - component: {fileID: 5954792930619822396}
   m_Layer: 0
   m_Name: Banana
   m_TagString: Banana
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3245231907137573577}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.97, y: -4.8, z: 0.046195004}
+  m_LocalPosition: {x: 1.65131, y: 5.1102376, z: 0.046195004}
   m_LocalScale: {x: 0.6379, y: 0.6111, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -100,3 +101,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c6dca555c93bf4fa55b2779c4df009, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &5954792930619822396
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3245231907137573577}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5625

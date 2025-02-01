@@ -20,7 +20,9 @@ public class MonkeyController : MonoBehaviour
     public int bananaCount = 0; // Tracks collected bananas
     public TMP_Text Bananas; // Assign UI Text in Inspector
     public bool inVine = false;
-
+    private float score = 0f;
+    private float maxHeight = 0f;
+    public TMP_Text scoreText; // Assign in Inspector
 
 
     public Animator anim;
@@ -40,7 +42,7 @@ public class MonkeyController : MonoBehaviour
     }
     void Update()
     {
-
+        UpdateScore();
         if (inVine && rigidbody2D.linearVelocityY < 0) {
             rigidbody2D.gravityScale = 0;
         } else {
@@ -98,6 +100,15 @@ public class MonkeyController : MonoBehaviour
        
         
     }
+
+    public void UpdateScore()
+    {
+        if (transform.position.y > maxHeight) // Update max height
+        {
+            maxHeight = transform.position.y - 4;
+            UpdateScoreDisplay();
+        }
+    }
     public void Die()
     {
         Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
@@ -111,6 +122,10 @@ public class MonkeyController : MonoBehaviour
     {
         Bananas.text = "Bananas: " + bananaCount;
     }
+    void UpdateScoreDisplay()
+    {
+        scoreText.text = "Score: " + Mathf.FloorToInt(maxHeight);
+    }
 
-    
+
 }
