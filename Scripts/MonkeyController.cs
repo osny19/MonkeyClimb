@@ -12,8 +12,12 @@ public class MonkeyController : MonoBehaviour
     private Rigidbody2D rigidbody2D;
     private Vector2 m_Move;
     private HashSet<Collider2D> touchedGround;
+<<<<<<< Updated upstream
     public float maxSpeed = 10;
     public GameObject deathEffectPrefab;
+=======
+    public Animator anim;
+>>>>>>> Stashed changes
 
     void Awake()
     {
@@ -28,6 +32,11 @@ public class MonkeyController : MonoBehaviour
     }
     void Update()
     {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        anim.SetFloat("horizontal", horizontal);
+        anim.SetFloat("vertical", vertical);
         // Move
         rigidbody2D.AddForceX(m_Move.x * speed * Time.deltaTime);
         rigidbody2D.linearVelocityX = Mathf.Clamp(rigidbody2D.linearVelocityX, -maxSpeed, maxSpeed);
