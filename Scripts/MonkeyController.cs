@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 [RequireComponent(typeof(PlayerInput))]
 [RequireComponent(typeof(Rigidbody2D))]
@@ -14,6 +15,10 @@ public class MonkeyController : MonoBehaviour
     private HashSet<Collider2D> touchedGround;
     public float maxSpeed = 10;
     public GameObject deathEffectPrefab;
+    public int bananaCount = 0; // Tracks collected bananas
+    public TMP_Text Bananas; // Assign UI Text in Inspector
+
+
 
     public Animator anim;
 
@@ -21,6 +26,8 @@ public class MonkeyController : MonoBehaviour
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         touchedGround = new HashSet<Collider2D>();
+        UpdateBananaDisplay();
+
     }
 
     public void OnMove(InputValue value)
@@ -68,6 +75,15 @@ public class MonkeyController : MonoBehaviour
             }
         }
     }
+
+    public void CollectBanana()
+    {
+        
+        bananaCount++;
+        UpdateBananaDisplay();
+       
+        
+    }
     public void Die()
     {
         Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
@@ -75,5 +91,10 @@ public class MonkeyController : MonoBehaviour
         Destroy(gameObject.GetComponent<SpriteRenderer>());
         GameOverText.instance.GameOver();
         Destroy(this);
+    }
+
+    void UpdateBananaDisplay()
+    {
+        Bananas.text = "Bananas: " + bananaCount;
     }
 }
