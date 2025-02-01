@@ -23,6 +23,10 @@ public class MonkeyController : MonoBehaviour
     private float score = 0f;
     private float maxHeight = 0f;
     public TMP_Text scoreText; // Assign in Inspector
+    private bool throwingBanana = false;
+    public GameObject ThrowBanana;
+    
+
 
 
     public Animator anim;
@@ -40,6 +44,7 @@ public class MonkeyController : MonoBehaviour
         m_Move = value.Get<Vector2>();
         //Debug.Log(m_Move.x);
     }
+
     void Update()
     {
         UpdateScore();
@@ -77,6 +82,21 @@ public class MonkeyController : MonoBehaviour
                 rigidbody2D.AddForceY(jumpStrength);
             }
             touchedGround = new HashSet<Collider2D>();
+        }
+        handleThrowing();
+    }
+    void handleThrowing()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+
+            // position of spanwed object could be 'GetPoint(0).. 1.. 2' half random choice ;)
+            GameObject banana = Instantiate(ThrowBanana);
+            banana.transform.position = gameObject.transform.position;
+            float speed = 10f;
+            banana.transform.Translate(Vector2.down * speed * Time.deltaTime);
+            rigidbody2D.AddForceY(jumpStrength);
+            Destroy(banana, 3);
         }
     }
     void OnCollisionEnter2D(Collision2D col)
