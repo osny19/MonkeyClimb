@@ -87,16 +87,24 @@ public class MonkeyController : MonoBehaviour
     }
     void handleThrowing()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (bananaCount > 0)
         {
 
-            // position of spanwed object could be 'GetPoint(0).. 1.. 2' half random choice ;)
-            GameObject banana = Instantiate(ThrowBanana);
-            banana.transform.position = gameObject.transform.position;
-            float speed = 10f;
-            banana.transform.Translate(Vector2.down * speed * Time.deltaTime);
-            rigidbody2D.AddForceY(jumpStrength);
-            Destroy(banana, 3);
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+
+                // position of spanwed object could be 'GetPoint(0).. 1.. 2' half random choice ;)
+                GameObject banana = Instantiate(ThrowBanana);
+                banana.transform.position = gameObject.transform.position;
+                float speed = 10f;
+                banana.transform.Translate(Vector2.down * speed * Time.deltaTime);
+                rigidbody2D.AddForceY(jumpStrength);
+                Destroy(banana, 3);
+                bananaCount--;
+                UpdateBananaDisplay();
+
+            }
         }
     }
     void OnCollisionEnter2D(Collision2D col)
@@ -114,7 +122,7 @@ public class MonkeyController : MonoBehaviour
 
     public void CollectBanana()
     {
-        
+   
         bananaCount++;
         UpdateBananaDisplay();
        
