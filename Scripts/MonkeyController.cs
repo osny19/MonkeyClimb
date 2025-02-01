@@ -15,6 +15,8 @@ public class MonkeyController : MonoBehaviour
     public float maxSpeed = 10;
     public GameObject deathEffectPrefab;
 
+    public Animator anim;
+
     void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -28,6 +30,11 @@ public class MonkeyController : MonoBehaviour
     }
     void Update()
     {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        anim.SetFloat("horizontal", horizontal);
+        anim.SetFloat("vertical", vertical);
         // Move
         rigidbody2D.AddForceX(m_Move.x * speed * Time.deltaTime);
         rigidbody2D.linearVelocityX = Mathf.Clamp(rigidbody2D.linearVelocityX, -maxSpeed, maxSpeed);

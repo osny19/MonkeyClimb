@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 44ee61eacaedf49f6ab9fbb6320afaa1
+guid: 8aa708f1b5bf693498d354e69126b8a4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9076929498176576112
-    second: RoboMonkey1_0
+      213: 8852091006615612165
+    second: walking_monkey_right0_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RoboMonkey1_0
+      name: walking_monkey_right0_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 6
-        width: 40
-        height: 40
+        x: 0
+        y: 0
+        width: 50
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 095abe986b4480280800000000000000
-      internalID: -9076929498176576112
+      spriteID: 50be0c0ced1f8da70800000000000000
+      internalID: 8852091006615612165
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      RoboMonkey1_0: -9076929498176576112
+      walking_monkey_right0_0: 8852091006615612165
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
