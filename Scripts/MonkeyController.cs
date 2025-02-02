@@ -27,6 +27,8 @@ public class MonkeyController : MonoBehaviour
     public TMP_Text scoreText; // Assign in Inspector
     private bool throwingBanana = false;
     public GameObject ThrowBanana;
+
+    public GameObject scoreHandler;
     
 
 
@@ -147,6 +149,7 @@ public class MonkeyController : MonoBehaviour
         rigidbody2D.Sleep();
         Destroy(gameObject.GetComponent<SpriteRenderer>());
         GameOverText.instance.GameOver();
+        scoreHandler.GetComponent<ScoreHandler>().addScore();
         Destroy(this);
     }
 
