@@ -29,6 +29,8 @@ public class MonkeyController : MonoBehaviour
     private bool throwingBanana = false;
     public GameObject ThrowBanana;
     public float frictionX = 0.99f;
+    public GameObject scoreHandler;
+    
 
 
 
@@ -151,6 +153,7 @@ public class MonkeyController : MonoBehaviour
         rigidbody2D.Sleep();
         Destroy(gameObject.GetComponent<SpriteRenderer>());
         GameOverText.instance.GameOver();
+        scoreHandler.GetComponent<ScoreHandler>().addScore();
         Destroy(this);
     }
 
