@@ -18,6 +18,7 @@ public class MonkeyController : MonoBehaviour
     public float maxSpeed = 10;
     public GameObject deathEffectPrefab;
     public GameObject deathScreem;
+    public GameObject eatBananaSound;
     public int bananaCount = 0; // Tracks collected bananas
     public TMP_Text Bananas; // Assign UI Text in Inspector
     public bool inVine = false;
@@ -126,6 +127,7 @@ public class MonkeyController : MonoBehaviour
    
         bananaCount++;
         UpdateBananaDisplay();
+        Instantiate(eatBananaSound);
        
         
     }
