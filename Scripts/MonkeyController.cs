@@ -17,6 +17,7 @@ public class MonkeyController : MonoBehaviour
     private HashSet<Collider2D> touchedGround;
     public float maxSpeed = 10;
     public GameObject deathEffectPrefab;
+    public GameObject deathScreem;
     public int bananaCount = 0; // Tracks collected bananas
     public TMP_Text Bananas; // Assign UI Text in Inspector
     public bool inVine = false;
@@ -140,6 +141,7 @@ public class MonkeyController : MonoBehaviour
     public void Die()
     {
         Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
+        Instantiate(deathScreem);
         rigidbody2D.Sleep();
         Destroy(gameObject.GetComponent<SpriteRenderer>());
         GameOverText.instance.GameOver();
