@@ -11,7 +11,7 @@ public class ScoreHandler : MonoBehaviour
     public TMP_Text scoreBoard;
     public TMP_Text scoreText;
     public GameObject scoringUI;
-    public static int MIN_SCORE = 1;
+    public static int MIN_SCORE = 15;
     private static Dictionary<string, int> scores = new Dictionary<string, int>();
 
     private int score;
