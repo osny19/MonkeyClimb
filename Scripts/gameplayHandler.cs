@@ -11,7 +11,7 @@ public class gameplayHandler : MonoBehaviour
     public GameObject background;
     public GameObject background1;
     public List<GameObject> pool = new List<GameObject>(); 
-    private float segmentHeight;
+    private float segmentHeight;    
     private int segmentCount = 0;
 
 
@@ -32,7 +32,7 @@ public class gameplayHandler : MonoBehaviour
 
             GameObject newSegment = Instantiate(chosen);
 
-            newSegment.transform.position = new UnityEngine.Vector2(-1.261898f, background.transform.position.y+segmentCount*segmentHeight-0.01f);
+            newSegment.transform.position = new UnityEngine.Vector2(-1.261898f, background.transform.position.y+segmentCount*segmentHeight);
         }
         
     }
