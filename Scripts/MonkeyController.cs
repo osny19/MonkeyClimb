@@ -148,11 +148,11 @@ public class MonkeyController : MonoBehaviour
 
     void UpdateBananaDisplay()
     {
-        Bananas.text = "Bananas: " + bananaCount;
+        Bananas.text = bananaCount.ToString();
     }
     void UpdateScoreDisplay()
     {
-        scoreText.text = "Score: " + Mathf.FloorToInt(maxHeight);
+        scoreText.text = Mathf.FloorToInt(maxHeight) + " m";
     }
 
 
