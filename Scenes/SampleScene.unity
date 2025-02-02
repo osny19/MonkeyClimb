@@ -346,8 +346,8 @@ Transform:
   m_GameObject: {fileID: 385738635}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0368, y: -0, z: 16.922998}
-  m_LocalScale: {x: 14.642414, y: 10.595697, z: 1.6922998}
+  m_LocalPosition: {x: -0.0094, y: -0, z: 16.922998}
+  m_LocalScale: {x: 17.872093, y: 10.595697, z: 1.6922998}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 140941598}
@@ -1378,7 +1378,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 502.75, y: 367.95}
+  m_AnchoredPosition: {x: 302.58, y: 179.05}
   m_SizeDelta: {x: 59.1763, y: 51.933}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2141429643
@@ -1732,7 +1732,7 @@ PrefabInstance:
       objectReference: {fileID: 1432834876}
     - target: {fileID: 4273431904651119653, guid: 32fd4bda7c82af3409fa51ca12f986be, type: 3}
       propertyPath: climbSpeed
-      value: 200
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 4273431904651119653, guid: 32fd4bda7c82af3409fa51ca12f986be, type: 3}
       propertyPath: jumpStrength
