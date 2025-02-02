@@ -16,6 +16,7 @@ public class MonkeyController : MonoBehaviour
     private Vector2 m_Move;
     private HashSet<Collider2D> touchedGround;
     public float maxSpeed = 10;
+    public float vineMaxSpeed = 3;
     public GameObject deathEffectPrefab;
     public GameObject deathScreem;
     public GameObject eatBananaSound;
@@ -27,7 +28,7 @@ public class MonkeyController : MonoBehaviour
     public TMP_Text scoreText; // Assign in Inspector
     private bool throwingBanana = false;
     public GameObject ThrowBanana;
-    
+    public float frictionX = 0.99f;
 
 
 
@@ -58,6 +59,7 @@ public class MonkeyController : MonoBehaviour
 
         if (inVine) {
             rigidbody2D.linearVelocityY = m_Move.y * climbSpeed * Time.deltaTime;
+            rigidbody2D.linearVelocityX = Mathf.Clamp(rigidbody2D.linearVelocityX, -vineMaxSpeed, vineMaxSpeed);
         }
 
         float horizontal = Input.GetAxis("Horizontal");
@@ -68,6 +70,7 @@ public class MonkeyController : MonoBehaviour
         // Move
         rigidbody2D.AddForceX(m_Move.x * speed * Time.deltaTime);
         rigidbody2D.linearVelocityX = Mathf.Clamp(rigidbody2D.linearVelocityX, -maxSpeed, maxSpeed);
+        rigidbody2D.linearVelocityX *= frictionX;
         // Jump
         if (m_Move.y > 0.5f && touchedGround.Count > 0)
         {
@@ -101,6 +104,7 @@ public class MonkeyController : MonoBehaviour
                 banana.transform.position = gameObject.transform.position;
                 float speed = 10f;
                 banana.transform.Translate(Vector2.down * speed * Time.deltaTime);
+                rigidbody2D.linearVelocityY = Mathf.Max(rigidbody2D.linearVelocityY, 0); // If we are falling down, reset y velocity before adding new speed.
                 rigidbody2D.AddForceY(jumpStrength);
                 Destroy(banana, 3);
                 bananaCount--;
